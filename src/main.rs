@@ -1,5 +1,5 @@
 use reqwest;
-use reqwest::header::{CONTENT_TYPE, ACCEPT};
+use reqwest::header::ACCEPT;
 use serde::{Deserialize, Serialize};
 
 
@@ -21,7 +21,6 @@ async fn main() {
     let response = client
         .get("https://api.adviceslip.com/advice")
         .header(ACCEPT, "application/json")
-        .header(CONTENT_TYPE, "application/json")
         .send()
         .await.unwrap();
     match response.status()
